@@ -5,31 +5,16 @@ show_menu() {
     echo "########################"
     echo "        WIREGUARD"
     echo "########################"
-    echo "1) Server Install"
-    echo "2) Client Install"
-    echo "3) Configure Server Conf file"
-    echo "4) Configure Client Conf files"
+    echo "1) Wireguard Install"
+    echo "2) Configure Server Conf file"
+    echo "3) Configure Client Conf files"
     echo "*) Exit"
-}
-
-install_server() {
-    clear
-    echo "########################################################"
-    echo "Installing WireGuard on server..."
-    echo "########################################################"
-    sudo apt-get update
-    sudo apt-get install -y wireguard
-
-    echo "########################################################"
-    echo "WireGuard installation on server completed."
-    echo ""
-    read -p "Press Enter to continue..."
 }
 
 install_client() {
     clear
     echo "########################################################"
-    echo "Installing WireGuard on client..."
+    echo "Installing WireGuard..."
     echo "########################################################"
     sudo apt-get update
     sudo apt-get install -y wireguard
@@ -110,10 +95,9 @@ do
 
     read -p "Enter your choice: " choice
     case $choice in
-        1) install_server ;;
-        2) install_client ;;
-        3) configure_server_conf ;;
-        4) configure_client_conf ;;
+        1) install_client ;;
+        2) configure_server_conf ;;
+        3) configure_client_conf ;;
         *) echo "Exiting..." && exit ;;
     esac
 done
