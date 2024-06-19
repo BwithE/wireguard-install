@@ -79,7 +79,7 @@ configure_server_conf() {
 configure_client_conf() {
     clear
     echo "########################################################"
-    read -p "Please enter a name for the client. (Ex: BobsPC): " $clientconf
+    read -p "Please enter a name for the client. (Ex: BobsPC): " clientconf
     read -p "Enter client IP address (e.g., 10.0.0.2/24): " client_ip
     echo "########################################################"
     echo "Generating $clientconf keys"
