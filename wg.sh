@@ -100,6 +100,7 @@ configure_client_conf() {
     echo "########################################################"
     read -p "Please enter a name for the client (e.g., BobsPC): " clientconf
     read -p "Enter client IP address (e.g., 10.0.0.2/24): " client_ip
+    read -p "What is the SERVER IP address you will connect to? (NOT VPN IP): " pubip
     echo "########################################################"
     echo "Generating $clientconf keys"
 
@@ -115,7 +116,8 @@ configure_client_conf() {
         echo "Address = $client_ip" >> /etc/wireguard/$clientconf.conf
         echo "[Peer]" >> /etc/wireguard/$clientconf.conf
         echo "PublicKey = $(cat /etc/wireguard/srvpublic)" >> /etc/wireguard/$clientconf.conf
-        echo "Endpoint = $server_ip:$server_port" >> /etc/wireguard/$clientconf.conf
+        echo "Endpoint = $pubip:$server_port" >> /etc/wireguard/$clientconf.conf
+        echo "AllowedIPs = $server_ip" >> /etc/wireguard/$clientconf.conf
 
         echo "[Peer]" >> /etc/wireguard/wg0.conf
         echo "PublicKey = $(cat /etc/wireguard/$clientconf-public)" >> /etc/wireguard/wg0.conf
