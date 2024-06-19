@@ -1,11 +1,5 @@
 #!/bin/bash
 
-echo "########################################################"
-echo "This script can be run on the Server and Client separately"
-echo "It is recommended to build your keys and conf files on a"
-echo "different device than your server."
-echo "########################################################"
-
 show_menu() {
     clear
     echo "########################"
@@ -117,11 +111,11 @@ configure_client_conf() {
         echo "[Peer]" >> /etc/wireguard/$clientconf.conf
         echo "PublicKey = $(cat /etc/wireguard/srvpublic)" >> /etc/wireguard/$clientconf.conf
         echo "Endpoint = $pubip:$server_port" >> /etc/wireguard/$clientconf.conf
-        echo "AllowedIPs = $server_ip" >> /etc/wireguard/$clientconf.conf
+        echo "AllowedIPs = $server_ip/32" >> /etc/wireguard/$clientconf.conf
 
         echo "[Peer]" >> /etc/wireguard/wg0.conf
         echo "PublicKey = $(cat /etc/wireguard/$clientconf-public)" >> /etc/wireguard/wg0.conf
-        echo "AllowedIPs = $client_ip" >> /etc/wireguard/wg0.conf
+        echo "AllowedIPs = $client_ip/32" >> /etc/wireguard/wg0.conf
 
         echo "########################################################"
         echo "Client configuration completed. Config file saved as $clientconf.conf."
