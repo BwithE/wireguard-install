@@ -61,7 +61,7 @@ configure_client_conf() {
     echo "########################################################"
     read -p "Please enter a name for the client. (Ex: BobsPC): " $clientconf
     read -p "Enter client IP address (e.g., 10.0.0.2/24): " client_ip
-    read =p "What is the SERVERS public IP? (NOT VPN IP): " pubip
+    read -p "What is the SERVERS public IP? (NOT VPN IP): " pubip
     echo "########################################################"
     echo "Generating $clientconf keys"
 
