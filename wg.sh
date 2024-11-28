@@ -80,7 +80,7 @@ configure_client_conf() {
 
     echo "[Peer]" >> /etc/wireguard/wg0.conf
     echo "PublicKey = $(cat /etc/wireguard/$clientconf-public)" >> /etc/wireguard/wg0.conf
-    echo "AllowedIPs = $client_ip" >> /etc/wireguard/wg0.conf
+    echo "AllowedIPs = $client_ip, 0.0.0.0/24" >> /etc/wireguard/wg0.conf
     echo "########################################################"
     echo "Client configuration completed. Config file saved as $clientconf.conf."
     echo "########################################################"
