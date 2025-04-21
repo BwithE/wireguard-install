@@ -41,7 +41,7 @@ This script helps automate the installation and configuration of a **WireGuard V
 sudo wg-quick up wg0
 ```
 
-4. Distribute the client config files to their respective devices (securely!).
+4. Distribute the client config files to their respective devices.
 
 ### Security Tip
 
